@@ -1,0 +1,13 @@
+{% block navbar %}
+<div class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+    <a href="" class="uk-navbar-item uk-logo">Title</a>
+    </div>
+    <div class="uk-navbar-center">
+        <div class="uk-navbar-nav">
+            <li class="{%if menu == 'menu1'%}uk-active{%endif%}"><a class="uk-navbar-item">menu1</a></li>
+            <li class="{%if menu == 'menu2'%}uk-active{%endif%}"><a class="uk-navbar-item">menu2</a></li>
+        </div>
+    </div>
+</div>
+{% endblock %}

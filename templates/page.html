@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% with menu="menu1" %}
+    {% include 'navbar.html' %}
+{% endwith %}
+
+{% block contents_body %}
+<div class="uk-container uk-container-large uk-align-center">
+    <div class="uk-text-center uk-text-lead uk-margin">
+        page sample
+    </div>
+    <div class="uk-card uk-card-default uk-margin uk-width-1-2@m">
+        <div class="uk-card-media-top">
+            <img src="/static/img/light.jpeg" alt="">
+        </div>
+        <div class="uk-card-body">
+            <h3 class="uk-card-title">Media Top</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
