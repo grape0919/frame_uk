@@ -1,4 +1,3 @@
-from flask import blueprints
 from flask.blueprints import Blueprint
 from flask.templating import render_template
 
@@ -6,9 +5,12 @@ from flask.templating import render_template
 bp_view = Blueprint("view", __name__, url_prefix="/")
 
 @bp_view.route("/")
-@bp_view.route("/index")
 def index():
-    return render_template("index.html")
+    return render_template("products.html")
+
+@bp_view.route("/blogger")
+def nohandblogger():
+    return render_template("blogger.html")
 
 @bp_view.route("/sample/<template>")
 def page(template):

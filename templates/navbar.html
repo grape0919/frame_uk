@@ -1,23 +1,27 @@
 {% block navbar %}
 <div class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
-    <a href="" class="uk-navbar-item uk-logo uk-text-bold uk-margin-left">Title</a>
+    <a href="" class="uk-navbar-item uk-logo uk-text-bold uk-margin-left">
+        <img data-src="/static/img/nohands_solutions.png" width="120" height="50" alt="" uk-img>
+    </a>
     </div>
     <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
-            <li class="{%if menu == 'menu1'%}uk-active{%endif%}"><a class="uk-navbar-item">Menu1</a></li>
-            <li class="{%if menu == 'menu2'%}uk-active{%endif%}"><a class="uk-navbar-item">Menu2</a></li>
-            <li>
-                <a href="#">Dropdown Menu</a>
+            <li><a href="/about">About</a></li>
+            <li class="">
+                <a href="/">Products</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">Active</a></li>
-                        <li><a href="#">Item</a></li>
-                        <li class="uk-nav-header">Header</li>
-                        <li><a href="#">Item</a></li>
-                        <li><a href="#">Item</a></li>
+                        <li class="uk-nav-header">Nohand solution</li>
+                        <li class="{%if menu == 'Blogger'%}uk-active{%endif%}"><a href="/blogger">Nohand Blogger</a></li>
+                        <li class="{%if menu == 'Writer'%}uk-active{%endif%}"><a href="/writer">Nohand Writer</a></li>
+                        <li class="{%if menu == 'Seller'%}uk-active{%endif%}"><a href="/seller">Nohand Seller</a></li>
                         <li class="uk-nav-divider"></li>
-                        <li><a href="#">Item</a></li>
+                        <li class="uk-nav-header">Web Dev</li>
+                        <li class="{%if menu == 'Survey'%}uk-active{%endif%}"><a href="/survey">Survey</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li class="uk-nav-header">Etc</li>
+                        <li class="{%if menu == 'Message'%}uk-active{%endif%}"><a href="/Message">Message Builder</a></li>
                     </ul>
                 </div>
             </li>
