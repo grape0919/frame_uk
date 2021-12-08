@@ -1,25 +1,68 @@
 {% set menu="monitor" %}
 {% extends 'page.html' %}
 {% block page_body %}
-<table class="uk-table uk-table-middle uk-table-divider">
-    <thead>
-        <tr>
-            <th class="uk-width-small">Table Heading</th>
-            <th>Table Heading</th>
-            <th>Table Heading</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
+
+<ul class="uk-child-width-expand" uk-switcher="connect: .switcher-container" uk-tab>
+    <li class="uk-active uk-text-bold"><a href="#">일반 발주 현황</a></li>
+    <li class="uk-text-bold" ><a href="#">MAS 발주 현황</a></li>
+</ul>
+
+<ul class="uk-switcher switcher-container uk-margin">
+    <li>
+    <table class="uk-table uk-table-middle uk-table-divider uk-table-large">
+        <thead>
+            <tr>
+                <th>발주일</th>
+                <th>납기일</th>
+                <th>거래처</th>
+                <th>품목</th>
+                <th>도장</th>
+                <th>거래처 담당자</th>
+                <th>비고</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>21.11.15</td>
+                <td class="bg-color-danger">21.12.02</td>
+                <td>경림이엔지</td>
+                <td>미디어함체(일체형)-4EA<br>
+                    미디어함체(좌대형)-14EA<br>
+                    -27인치 2개, 24인치 1개, 21.5인치 11개 </td>
+                <td>노란색, 핑크색</td>
+                <td>박성도 대리</td>
+                <td>일체형->12.02<br>
+                    좌대형->ASAP</td>
+            </tr>
+            <tr>
+                <td>21.11.19</td>
+                <td>21.12.06</td>
+                <td>오산시청</td>
+                <td>방범용-5EA, VDS-3EA, 주정차-3EA</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>21.11.26</td>
+                <td></td>
+                <td>영암산업</td>
+                <td>140-삼성전자5차-히터통바람구멍</td>
+                <td></td>
+                <td>이승진 사원</td>
+                <td></td>
+            </tr>
+
+            <!-- <tr>
             <td>Table Data</td>
             <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
             <td><button class="uk-button uk-button-default" type="button">Button</button></td>
-        </tr>
-        <tr>
-            <td>Table Data</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-            <td><button class="uk-button uk-button-default" type="button">Button</button></td>
-        </tr>
-    </tbody>
-</table>
+        </tr> -->
+        </tbody>
+    </table>
+    </li>
+    <li>
+        MAS 발주 현황
+    </li>
+</ul>
 {% endblock page_body %}
