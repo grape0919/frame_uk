@@ -1,16 +1,19 @@
 from flask.blueprints import Blueprint
-from flask.templating import render_template
-
+from flask import redirect, render_template
 
 bp_view = Blueprint("view", __name__, url_prefix="/")
 
 @bp_view.route("/")
 def index():
-    return render_template("products.html")
+    return redirect("/monitor")
 
-@bp_view.route("/blogger")
-def nohandblogger():
-    return render_template("blogger.html")
+@bp_view.route("/adm")
+def adm():
+    return render_template("order_adm.html")
+
+@bp_view.route("/monitor")
+def monitor():
+    return render_template("order_monitor.html")
 
 @bp_view.route("/sample/<template>")
 def page(template):

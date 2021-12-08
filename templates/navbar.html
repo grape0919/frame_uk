@@ -1,30 +1,19 @@
 {% block navbar %}
-<div class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-    <a href="" class="uk-navbar-item uk-logo uk-text-bold uk-margin-left">
-        <img data-src="/static/img/nohands_solutions.png" width="120" height="50" alt="" uk-img>
-    </a>
-    </div>
+<div uk-sticky="media: 960"
+    class="uk-navbar-container tm-navbar-container uk-sticky uk-active uk-sticky-below uk-sticky-fixed uk-navbar-transparent"
+    style="position: fixed; top: 0px; width: 1039px;" uk-navbar>
+
     <div class="uk-navbar-center">
+        <a class="uk-navbar-item uk-logo"><img src="http://www.taeyangcctv.com/2018_img/logo3.jpg"></a>
+    </div>
+    <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
-            <li><a href="/about">About</a></li>
-            <li class="">
-                <a href="/">Products</a>
-                <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-nav-header">Nohand solution</li>
-                        <li class="{%if menu == 'Blogger'%}uk-active{%endif%}"><a href="/blogger">Nohand Blogger</a></li>
-                        <li class="{%if menu == 'Writer'%}uk-active{%endif%}"><a href="/writer">Nohand Writer</a></li>
-                        <li class="{%if menu == 'Seller'%}uk-active{%endif%}"><a href="/seller">Nohand Seller</a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li class="uk-nav-header">Web Dev</li>
-                        <li class="{%if menu == 'Survey'%}uk-active{%endif%}"><a href="/survey">Survey</a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li class="uk-nav-header">Etc</li>
-                        <li class="{%if menu == 'Message'%}uk-active{%endif%}"><a href="/Message">Message Builder</a></li>
-                    </ul>
-                </div>
+            {% if menu == "monitor" %}
+            <li><a href="/adm" class="uk-icon-link uk-margin-small-right" uk-icon="icon: cog; ratio: 1.5"></a></li>
+            {% else %}
+            <li><a href="/monitor" class="uk-icon-link uk-margin-small-right" uk-icon="icon: tv; ratio: 1.5"></a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </div>
