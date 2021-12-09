@@ -13,8 +13,8 @@ def index():
 
     return make_response({"status":True}, 200)
 
-@bp_api.route("/test", methods=["GET"])
-def test():
+@bp_api.route("/generalOrder", methods=["GET"])
+def generalOrder():
 
     res = index()
     print("!@#!@# res : ", res)
