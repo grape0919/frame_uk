@@ -6,7 +6,9 @@
 {% endblock contents_header %}
 
 {% block contents_body %}
-    {% block page_body %}{% endblock %}
+    {% block page_head %}{% endblock page_head %}
+    {% block page_body %}{% endblock page_body %}
+    {% block page_footer %}{% endblock page_footer %}
 {% endblock contents_body %}
 
 {% block contents_footer %}

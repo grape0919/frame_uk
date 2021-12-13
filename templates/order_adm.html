@@ -1,33 +1,25 @@
 {% set menu="adm" %}
 {% extends 'page.html' %}
+
 {% block page_body %}
-<table class="uk-table uk-table-middle uk-table-divider uk-table-large">
-    <thead>
-        <tr>
-            <th>번호</th>
-            <th>발주일</th>
-            <th>거래처</th>
-            <th>품목</th>
-            <th>납기일</th>
-            <th>도장현황</th>
-            <th>절곡현황</th>
-            <th>용접현황</th>
-            <th>도장</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td class="bg-color-danger">21.12.02</td>
-            <td>경림이엔지</td>
-            <td>미디어함체(일체형)-4EA<br>
-                미디어함체(좌대형)-14EA<br>
-                -27인치 2개, 24인치 1개, 21.5인치 11개 </td>
-            <td>노란색, 핑크색</td>
-            <td>박성도 대리</td>
-            <td>일체형->12.02<br>
-                좌대형->ASAP</td>
-        </tr>
-    </tbody>
-</table>
+
+<ul class="uk-child-width-expand" uk-switcher="connect: .switcher-container" uk-tab>
+    <li class="uk-text-bold {% if tab=='gen' or tab=='' %} uk-active {% endif %}"><a href="#">일반 발주 현황</a></li>
+    <li class="uk-text-bold {% if tab=='mas' or tab=='' %} uk-active {% endif %}"><a href="#">MAS 발주 현황</a></li>
+</ul>
+
+<ul class="uk-switcher switcher-container uk-margin">
+    <li id="general_order_table" class="uk-active">
+    </li>
+    <li id="MAS_order_table">
+        MAS 발주 현황
+    </li>
+</ul>
+
 {% endblock page_body %}
+
+{% block page_footer %}
+{{ super() }}
+<script src="/static/js/admin_func.js"></script>
+<script>load_and_load()</script>
+{% endblock page_footer %}
