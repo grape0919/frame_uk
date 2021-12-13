@@ -1,13 +1,15 @@
 .color-smartblue{
-    color:#082c5c
+    color:#082c5c;
 }
 
 .bg-color-smartblue{
     background-color: #082c5c;
+    color: #eeeeee;
 }
 
 .bg-color-danger{
     background-color: #d61515;
+    color: #eeeeee;
 }
 
 .bg-color-white{
@@ -26,10 +28,19 @@
     background-color: #21acfd;
 }
 
-.fg-color-white{
-    color: #eeeeee
+.bg-color-green{
+    background-color: #259149;
+    color: #eeeeee;
 }
 
-.fg-color-black{
-    color: #3b3b3b
+.color-danger{
+    color: #d61515;
+}
+
+.color-white{
+    color: #eeeeee;
+}
+
+.color-black{
+    color: #3b3b3b;
 }

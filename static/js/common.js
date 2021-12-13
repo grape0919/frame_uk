@@ -1,6 +1,11 @@
 
 
+function load_and_load(){
+    var container = document.querySelector(".uk-active").contentWindow.location.reload(true);
+    // var content = container.innerHTML;
+    // container.innerHTML= content;
 
-function GeneralOrder(){
-    
-};
+    console.log("reloaded")
+}
+
+setInterval(load_and_load, 5000)
