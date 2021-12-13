@@ -1,6 +1,7 @@
 from flask.blueprints import Blueprint
 from flask import redirect, render_template
 
+from db import db_hander
 bp_view = Blueprint("view", __name__, url_prefix="/")
 
 @bp_view.route("/")
@@ -9,11 +10,13 @@ def index():
 
 @bp_view.route("/adm")
 def adm():
-    return render_template("order_adm.html")
+    result = db_hander.get_order()
+    return render_template("order_adm.html", gen_order= result)
 
 @bp_view.route("/monitor")
 def monitor():
-    return render_template("order_monitor.html")
+    result = db_hander.get_order()
+    return render_template("order_monitor.html", gen_order=result)
 
 @bp_view.route("/sample/<template>")
 def page(template):
