@@ -43,7 +43,7 @@ function adm_GeneralOrder() {
                 table_str += "<td>" + order_list[i]['end_date'] + "</td>"
                 table_str += "<td>" + order_list[i]['laser_stat'] + "</td>"
                 table_str += "<td>" + order_list[i]['bending_stat'] + "</td>"
-                table_str += "<td>" + order_list[i]['welding_stat'] + "</td>"
+                table_str += "<td>" + order_list[i]['wselding_stat'] + "</td>"
                 table_str += "<td>" + order_list[i]['color'] + "</td>"
 
                 table_str += "</tr>"
@@ -59,11 +59,4 @@ function adm_GeneralOrder() {
         .catch(error => console.log('error', error));
 };
 
-function reload(){
-    var container = document.querySelector(".uk-active")
-    var content = container.innerHTML;
-    container.innerHTML= content; 
-}
-
 adm_GeneralOrder();
-setInterval(reload, 5000)
