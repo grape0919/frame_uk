@@ -1,5 +1,5 @@
 from flask.blueprints import Blueprint
-from flask import redirect, render_template
+from flask import redirect, render_template, request
 
 from db import db_hander
 bp_view = Blueprint("view", __name__, url_prefix="/")
@@ -17,6 +17,13 @@ def adm():
 def monitor():
     result = db_hander.get_order()
     return render_template("order_monitor.html", gen_order=result)
+
+@bp_view.route("/addorder", methods=["POST"])
+def addorder():
+    
+    if request.method == 'POST':
+        print("!@#!@# request : ", request.form.to_dict())
+    return redirect("/adm")
 
 @bp_view.route("/sample/<template>")
 def page(template):

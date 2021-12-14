@@ -13,18 +13,18 @@
         <table class="uk-table uk-table-middle uk-table-condensed uk-table-large uk-secondary">
             <thead>
                 <tr class="uk-text-primary">
-                    <th class="uk-text-middle">번호</th>
-                    <th class="uk-text-middle">발주일</th>
+                    <th class="uk-text-middle uk-table-shrink">번호</th>
+                    <th class="uk-text-middle uk-width-small">발주일</th>
                     <th class="uk-text-middle">거래처</th>
-                    <th class="uk-text-middle">품목</th>
-                    <th class="uk-text-middle">납기일</th>
+                    <th class="uk-text-middle uk-table-expand">품목</th>
+                    <th class="uk-text-middle uk-width-small">납기일</th>
                     <th class="uk-text-middle">레이저현황</th>
                     <th class="uk-text-middle">절곡현황</th>
                     <th class="uk-text-middle">용접현황</th>
                     <th class="uk-text-middle">도장색상</th>
                     <th>
                         <div class="uk-animation-toggle" tabindex="0">
-                            <a class="btn-add uk-button uk-button-primary uk-button-small uk-animation-scale-up" href="#modal-center" uk-toggle>등록</a>
+                            <a class="btn-add uk-button uk-button-primary uk-button-small uk-animation-scale-up">등록</a>
                         </div>
                     </th>
                 </tr>
@@ -53,78 +53,6 @@
         MAS 발주 현황
     </li>
 </ul>
-<div id="modal-center" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-
-        <form class="uk-form-horizontal">
-            <legend class="uk-legend">발주 등록</legend>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="start_date">발주일</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="start_date" type="text" placeholder="YYYY-MM-DD">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="customer">거래처</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="customer" type="text" placeholder="거래처 이름">
-                </div>
-            </div>
-            
-            <div class="uk-margin">
-                <label class="uk-form-label" for="product">품목</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="product" type="text" placeholder="">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="end_date">납기일</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="end_date" type="text" placeholder="YYYY-MM-DD">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="laser_stat">레이저현황</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="laser_stat" type="text" placeholder="진행중/완료..">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="bending_stat">절곡현황</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="bending_stat" type="text" placeholder="진행중/완료..">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="welding_stat">용접현황</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="welding_stat" type="text" placeholder="진행중/완료..">
-                </div>
-            </div>
-        
-            <div class="uk-margin">
-                <div class="uk-form-label">폰트색</div>
-                <div class="uk-form-controls uk-form-controls-text">
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label uk-background-default uk-text-emphasis">white</span></label>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label bg-color-white uk-text-emphasis">gray</span></label>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label bg-color-dark">dark</span></label><br>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label">blue</span></label>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label uk-label-success">green</span></label>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label uk-label-warning">orange</span></label><br>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label uk-label-danger">red</span></label>
-                    <label><input class="uk-radio" type="radio" name="radio1">  <span class="uk-label bg-color-yellow uk-text-emphasis">yellow</span></label>
-                </div>
-            </div>
-        
-            <div class="uk-align-center">
-                <p></p>
-                <button class="uk-button uk-button-primary" type="submit">저장</button>
-            </div>
-        </form>
-    </div>
-</div>
 {% endblock page_body %}
 
 {% block page_footer %}
