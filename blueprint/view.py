@@ -1,5 +1,5 @@
 from flask.blueprints import Blueprint
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, jsonify
 
 from db import db_hander
 bp_view = Blueprint("view", __name__, url_prefix="/")
@@ -19,15 +19,19 @@ def monitor():
     return render_template("order_monitor.html", gen_order=result)
 
 @bp_view.route("/addorder", methods=["POST"])
-def addorder():
-    
-    if request.method == 'POST':
-        order = request.form.to_dict()
-        if not order['font_color']:
-            order['font-color'] = 'white'
-        print("!@#!@# request : ", order)
-        db_hander.add_order(order)
+def addorder():    
+    order = request.form.to_dict()
+    if not order['font_color']:
+        order['font-color'] = 'white'
+    print("!@#!@# request : ", order)
+    db_hander.add_order(order)
     return redirect("/adm")
+
+@bp_view.route("/delorder", methods=["DELETE"])
+def delorder():
+    order_id = request.form.to_dict()['id']
+    db_hander.del_order(order_id)
+    return jsonify({"status":True, "status_code":200})
 
 @bp_view.route("/sample/<template>")
 def page(template):

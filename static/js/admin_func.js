@@ -90,8 +90,24 @@ UIkit.util.on('.btn-del', 'click', function(e) {
         ok: '삭제'
       }
     }).then(function () {
-        console.log('Confirmed.')
-        console.log(e.path[1].id)
+        var id = e.path[1].id
+        var formdata = new FormData();
+        formdata.append("id", id);
+
+        var requestOptions = {
+          method: 'DELETE',
+          body: formdata,
+          redirect: 'follow'
+        };
+
+        fetch("/delorder", requestOptions)
+          .then(response => response.text())
+          .then(function(result) { 
+            UIkit.modal.alert("삭제하였습니다.").then(function() {location.reload()});
+          })
+          .catch(function(error){
+            UIkit.modal.alert("삭제 실패 : \n" + error)
+          });
     }, function () {
         console.log('Rejected.')
     });

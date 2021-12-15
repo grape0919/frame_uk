@@ -78,8 +78,20 @@ class DBHandler():
     def update_order(self):
         pass
 
-    def del_order(self):
-        pass
+    def del_order(self, order_id):
+        cur = self.connect.cursor()
+        
+        try:
+            with open("db/sql/general/delete.sql") as sql_file:
+                delete_sql = sql_file.read() % order_id
+                cur.execute(delete_sql)
+                self.connect.commit()
+        
+        except Exception as e :
+            repr(e)
+            print("!@#!@# 주문 삭제중 오류 : ", e)
+        
+        cur.close()
     
     
     def __del__(self):
