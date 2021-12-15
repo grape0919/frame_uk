@@ -96,7 +96,8 @@ class DBHandler():
     
     def __del__(self):
         print("!@#!@# deletion db")
-        self.connect.close()
+        if self.connect:
+            self.connect.close()
 
 
 if __name__ == "__main__":
