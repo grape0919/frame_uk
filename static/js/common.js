@@ -9,5 +9,5 @@ function load_and_load(){
     console.log("reloaded")
 }
 function interval_loader(){
-setInterval(load_and_load, 5000);
+    setInterval(load_and_load, 5000);
 }

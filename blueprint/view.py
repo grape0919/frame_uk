@@ -22,7 +22,11 @@ def monitor():
 def addorder():
     
     if request.method == 'POST':
-        print("!@#!@# request : ", request.form.to_dict())
+        order = request.form.to_dict()
+        if not order['font_color']:
+            order['font-color'] = 'white'
+        print("!@#!@# request : ", order)
+        db_hander.add_order(order)
     return redirect("/adm")
 
 @bp_view.route("/sample/<template>")

@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS GENERAL_ORDER_STATUS (
     laser_stat text,
     bending_stat text,
     welding_stat text,
-    color text);
+    color text,
+    font_color text);
 
 CREATE TABLE IF NOT EXISTS MAS_ORDER_STATUS (
     id integer PRIMARY KEY AUTOINCREMENT,
@@ -20,4 +21,5 @@ CREATE TABLE IF NOT EXISTS MAS_ORDER_STATUS (
     meterial_order TEXT,
     welding_stat TEXT,
     color_stat text,
-    release_date text);
+    release_date text,
+    font_color text);

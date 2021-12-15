@@ -7,52 +7,7 @@
     <li class="uk-text-bold uk-active"><a href="#">일반 발주 현황</a></li>
     <li class="uk-text-bold"><a href="#">MAS 발주 현황</a></li>
 </ul>
-
-<ul class="uk-switcher switcher-container uk-margin">
-    <li class="order-table uk-active">
-        <table class="uk-table uk-table-middle uk-table-condensed uk-table-large uk-secondary">
-            <thead>
-                <tr class="uk-text-primary">
-                    <th class="uk-text-middle uk-table-shrink">번호</th>
-                    <th class="uk-text-middle uk-width-small">발주일</th>
-                    <th class="uk-text-middle">거래처</th>
-                    <th class="uk-text-middle uk-table-expand">품목</th>
-                    <th class="uk-text-middle uk-width-small">납기일</th>
-                    <th class="uk-text-middle">레이저현황</th>
-                    <th class="uk-text-middle">절곡현황</th>
-                    <th class="uk-text-middle">용접현황</th>
-                    <th class="uk-text-middle">도장색상</th>
-                    <th>
-                        <div class="uk-animation-toggle" tabindex="0">
-                            <a class="btn-add uk-button uk-button-primary uk-button-small uk-animation-scale-up">등록</a>
-                        </div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for order in gen_order %}
-                <tr>
-                    <td> {{order['id']}} </td>
-                    <td> {{order['start_date']}} </td>
-                    <td> {{order['customer']}} </td>
-                    <td> {{order['product']}} </td>
-                    <td> {{order['end_date']}} </td>
-                    <td> {{order['laser_stat']}} </td>
-                    <td> {{order['bending_stat']}} </td>
-                    <td> {{order['welding_stat']}} </td>
-                    <td> {{order['color']}} </td>
-                    <td><a class='btn-edit uk-margin-right' href='' uk-icon='icon: file-edit; radius: 1.5'></a>
-                    <a class='btn-del uk-text-danger' id="{{order['id']}}" href='' uk-icon='icon: trash; radius: 1.5;'></a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </li>
-    <li id="MAS_order_table">
-        MAS 발주 현황
-    </li>
-</ul>
+{% include 'order_table.html' %}
 {% endblock page_body %}
 
 {% block page_footer %}

@@ -14,10 +14,16 @@
 
 .bg-color-white{
     background-color: #eeeeee;
+    color: #303030;
+}
+
+.bg-color-dark{
+    background-color: #444444;
+    color: #eeeeee;
 }
 
 .bg-color-orange{
-    background-color: #e9b91d;
+    background-color: #fd9d20;
 }
 
 .bg-color-yellow{
@@ -26,6 +32,7 @@
 
 .bg-color-blue{
     background-color: #21acfd;
+    color: #eeeeee;
 }
 
 .bg-color-green{

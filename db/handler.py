@@ -70,6 +70,7 @@ class DBHandler():
         
         except Exception as e :
             repr(e)
+            print("!@#!@# 주문 추가중 오류 : ", e)
             
         cur.close()
         
