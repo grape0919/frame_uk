@@ -1,12 +1,9 @@
 {% set menu="monitor" %}
 {% extends 'page.html' %}
 {% block page_body %}
-
-<ul class="uk-child-width-expand" uk-switcher="connect: .switcher-container" uk-tab>
-    <li class="uk-active uk-text-bold"><a href="#">일반 발주 현황</a></li>
-    <li class="uk-text-bold"><a href="#">MAS 발주 현황</a></li>
-</ul>
-{% include 'order_table.html' %}
+{% with order_type = order_type %}
+    {% include 'order_table.html' %}
+{% endwith %}
 {% endblock page_body %}
 
 {% block page_footer %}

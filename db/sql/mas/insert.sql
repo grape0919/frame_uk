@@ -1,0 +1,1 @@
+INSERT INTO MAS_ORDER_STATUS(start_date, customer, product, product_type, amount, end_date, meterial_order, welding_stat, color_stat, release_date, font_color) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);

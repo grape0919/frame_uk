@@ -1,5 +1,6 @@
 from flask.blueprints import Blueprint
 from flask import redirect, render_template, request, jsonify
+from flask.helpers import make_response
 
 from db import db_hander
 bp_view = Blueprint("view", __name__, url_prefix="/")
@@ -10,13 +11,19 @@ def index():
 
 @bp_view.route("/adm")
 def adm():
-    result = db_hander.get_order()
-    return render_template("order_adm.html", gen_order= result)
+    return redirect("/adm/gen")
+
+@bp_view.route("/adm/<t>")
+def adm_type(t):
+    gen_order = db_hander.get_order()
+    mas_order = db_hander.get_mas_order()
+    return render_template("order_adm.html", order_type=t, gen_order=gen_order, mas_order=mas_order)
 
 @bp_view.route("/monitor")
 def monitor():
-    result = db_hander.get_order()
-    return render_template("order_monitor.html", gen_order=result)
+    gen_order = db_hander.get_order()
+    mas_order = db_hander.get_mas_order()
+    return render_template("order_monitor.html", gen_order=gen_order, mas_order=mas_order)
 
 @bp_view.route("/addorder", methods=["POST"])
 def addorder():    
@@ -25,13 +32,44 @@ def addorder():
         order['font-color'] = 'white'
     print("!@#!@# request : ", order)
     db_hander.add_order(order)
-    return redirect("/adm")
+    return redirect("/adm/gen")
 
 @bp_view.route("/delorder", methods=["DELETE"])
 def delorder():
     order_id = request.form.to_dict()['id']
     db_hander.del_order(order_id)
     return jsonify({"status":True, "status_code":200})
+
+@bp_view.route("/addmasorder", methods=["POST"])
+def addmasorder():    
+    order = request.form.to_dict()
+    if not order['font_color']:
+        order['font-color'] = 'white'
+    print("!@#!@# request : ", order)
+    db_hander.add_mas_order(order)
+    return redirect("/adm/mas")
+
+@bp_view.route("/delmasorder", methods=["DELETE"])
+def delmasorder():
+    order_id = request.form.to_dict()['id']
+    db_hander.del_order(order_id)
+    return jsonify({"status":True, "status_code":200})
+
+@bp_view.route("/getorder", methods=["GET"])
+def getorder():
+    order_id = request.form.to_dict()['id']
+    order = db_hander.get_order(order_id)
+    return jsonify({"status":True, "status_code":200, "result":order})
+
+@bp_view.route("/getmasorder", methods=["POST"])
+def getmasorder():
+    order_id = request.json['id']
+    order = db_hander.get_mas_order(order_id)
+    print("!@#!@# order : ", order)
+    return make_response(jsonify({"status":True, "result":order}),200)
+
+
+
 
 @bp_view.route("/sample/<template>")
 def page(template):
