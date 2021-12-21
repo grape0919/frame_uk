@@ -64,6 +64,7 @@ def getorder():
 @bp_view.route("/getmasorder", methods=["POST"])
 def getmasorder():
     order_id = request.json['id']
+    print("!@#!@# order_id : ", order_id)
     order = db_hander.get_mas_order(order_id)
     print("!@#!@# order : ", order)
     return make_response(jsonify({"status":True, "result":order}),200)

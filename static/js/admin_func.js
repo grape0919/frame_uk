@@ -288,7 +288,7 @@ function make_mas_form_dlg(isnew, id, start_date, customer, product, product_typ
   return html
 }
 
-async function getmasorder(id) {
+function getmasorder(id) {
   var raw = {
     "id": id
   };
@@ -302,19 +302,24 @@ async function getmasorder(id) {
     body: JSON.stringify(raw)
   };
 
-  const response = await fetch("/getmasorder", requestOptions);
-
-  return response.then(res => res.json());
+  const response = fetch("/getmasorder", requestOptions)
+  
+  console.log(response)
+  const result = response.json();
+  return result
 }
 
 UIkit.util.on('.btn-edit-mas', 'click', async function (e) {
   
   var id = e.path[1].id
+  if( id == "" ){
+    id = e.path
+  }
   try {
     var values = getmasorder(id);
+    console.log(values)
     console.log(values.result)
     console.log(values['result'])
-    values.then(res => console.log(res.json()))
     var html = make_mas_form_dlg(false,
       values['id'], values['start_date'], values['customer'],
       values['product'], values['product_type'], values['amount'],
