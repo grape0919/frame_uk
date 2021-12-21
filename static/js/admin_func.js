@@ -302,7 +302,9 @@ function getmasorder(id) {
     body: JSON.stringify(raw)
   };
 
-  const response = fetch("/getmasorder", requestOptions)
+  const response = fetch("/getmasorder", requestOptions).then(
+    
+  )
   
   console.log(response)
   const result = response.json();
