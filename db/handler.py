@@ -41,9 +41,10 @@ class DBHandler():
             if id:
                 with open("db/sql/general/select_by_id.sql") as sql_file:
                     rows = cur.execute(sql_file.read() % id)
+                    row = rows.fetchone()
                     temp = {}
                     for idx, c in enumerate(cur.description):
-                        temp[c[0]] = rows[0][idx]
+                        temp[c[0]] = row[idx]
                     result = temp
             else:
                 with open("db/sql/general/select_all.sql") as sql_file:
@@ -55,6 +56,7 @@ class DBHandler():
                         result.append(temp)
         except Exception as e:
             repr(e)
+            print("!@#!@# 현황 조회 실패 : ", e)
 
         cur.close()
         return result
@@ -79,8 +81,20 @@ class DBHandler():
 
         cur.close()
 
-    def update_order(self):
-        pass
+    def update_order(self, input_data:Dict):
+        cur = self.connect.cursor()
+        try:
+            print("!@#!@# input_data", input_data)
+            id = input_data.pop('id')
+            input = list(input_data.values())+[id]
+            print("!@#!@# input : ", input)
+            with open("db/sql/general/update.sql") as sql_file:
+                cur.execute(sql_file.read(), input)
+                self.connect.commit()
+        except Exception as e:
+            print("!@#!@# 주문 수정 오류 : ", e)
+        
+        cur.close()
 
     def del_order(self, order_id):
         cur = self.connect.cursor()
@@ -145,9 +159,21 @@ class DBHandler():
 
         cur.close()
 
-    def update_mas_order(self):
-        pass
-
+    def update_mas_order(self, input_data: Dict):
+        cur = self.connect.cursor()
+        try:
+            print("!@#!@# input_data", input_data)
+            id = input_data.pop('id')
+            input = list(input_data.values())+[id]
+            print("!@#!@# input : ", input)
+            with open("db/sql/mas/update.sql") as sql_file:
+                cur.execute(sql_file.read(), input)
+                self.connect.commit()
+        except Exception as e:
+            print("!@#!@# 주문 수정 오류 : ", e)
+        
+        cur.close()
+        
     def del_mas_order(self, order_id):
         cur = self.connect.cursor()
 
