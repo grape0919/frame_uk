@@ -10,4 +10,4 @@ app = Flask(__name__)
 app.register_blueprint(view.bp_view)
 app.register_blueprint(api.bp_api)
 
-app.run(port=90, debug=False)
+app.run(host="192.168.0.17", port=8080, debug=False)

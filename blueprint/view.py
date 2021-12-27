@@ -25,6 +25,14 @@ def monitor():
     mas_order = db_hander.get_mas_order()
     return render_template("order_monitor.html", gen_order=gen_order, mas_order=mas_order)
 
+@bp_view.route("/getorder", methods=["POST"])
+def getorder():
+    order_id = request.json['id']
+    print("!@#!@# id : ", order_id)
+    order = db_hander.get_order(order_id)
+    print("!@#!@# order : ", order)
+    return jsonify({"status":True, "status_code":200, "result":order})
+
 @bp_view.route("/addorder", methods=["POST"])
 def addorder():    
     order = request.form.to_dict()
@@ -33,6 +41,16 @@ def addorder():
     print("!@#!@# request : ", order)
     db_hander.add_order(order)
     return redirect("/adm/gen")
+
+@bp_view.route("/updateorder", methods=["POST"])
+def updateorder():
+    order = request.form.to_dict()
+    print("!@#!@# update : ", order)
+    if not order['font_color']:
+        order['font-color'] = 'white'
+    print("!@#!@# request : ", order)
+    db_hander.update_order(order)
+    return redirect("/adm/mas")
 
 @bp_view.route("/delorder", methods=["DELETE"])
 def delorder():
@@ -49,17 +67,23 @@ def addmasorder():
     db_hander.add_mas_order(order)
     return redirect("/adm/mas")
 
+@bp_view.route("/updatemasorder", methods=["POST"])
+def updatemasorder():
+    order = request.form.to_dict()
+    print("!@#!@# update mas : ", order)
+    if not order['font_color']:
+        order['font-color'] = 'white'
+    print("!@#!@# request : ", order)
+    db_hander.update_mas_order(order)
+    return redirect("/adm/mas")
+
 @bp_view.route("/delmasorder", methods=["DELETE"])
 def delmasorder():
+    print("!@#!@# delete mas order")
     order_id = request.form.to_dict()['id']
-    db_hander.del_order(order_id)
+    db_hander.del_mas_order(order_id)
     return jsonify({"status":True, "status_code":200})
 
-@bp_view.route("/getorder", methods=["GET"])
-def getorder():
-    order_id = request.form.to_dict()['id']
-    order = db_hander.get_order(order_id)
-    return jsonify({"status":True, "status_code":200, "result":order})
 
 @bp_view.route("/getmasorder", methods=["POST"])
 def getmasorder():

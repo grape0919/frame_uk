@@ -1,18 +1,16 @@
 {% block navbar %}
-<div class="uk-navbar-container tm-navbar-container uk-active uk-navbar-transparent" uk-navbar>
+<div class="uk-navbar-container tm-navbar-container uk-active uk-navbar-transparent" style="height:40px;" uk-navbar>
 
     <div class="uk-navbar-center">
         <a class="uk-navbar-item uk-logo"><img src="http://www.taeyangcctv.com/2018_img/logo3.jpg"></a>
     </div>
     <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
             {% if menu == "monitor" %}
-            <li><a href="/adm" class="uk-icon-link uk-margin-small-right" uk-icon="icon: cog; ratio: 1.5"></a></li>
+            <a href="/adm" class="uk-icon-link uk-margin-small-right" uk-icon="icon: cog; ratio: 1"></a>
             {% else %}
-            <li><a href="/monitor" class="uk-icon-link uk-margin-small-right" uk-icon="icon: tv; ratio: 1.5"></a>
-            </li>
+            <a href="/monitor" class="uk-icon-link uk-margin-small-right" uk-icon="icon: tv; ratio: 1"></a>
+            
             {% endif %}
-        </ul>
     </div>
 </div>
 {% endblock %}
