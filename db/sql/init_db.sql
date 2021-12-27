@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS MAS_ORDER_STATUS (
     id integer PRIMARY KEY AUTOINCREMENT,
     start_date text,
     customer text,
+    project_name text,
     product text,
     product_type text,
     amount integer,

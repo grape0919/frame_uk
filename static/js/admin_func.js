@@ -495,7 +495,7 @@ UIkit.util.on('.btn-del-mas', 'click', function (e) {
 });
 
 UIkit.util.on('.btn-add-mas', 'click', function (e) {
-  html = make_mas_form_dlg(true, "", "", "", "", "", "", "", "", "", "", "", "")
+  html = make_mas_form_dlg(true, "", "", "", "", "", "", "", "", "", "", "", "", "")
   e.preventDefault();
   e.target.blur();
   UIkit.modal.dialog(html)
