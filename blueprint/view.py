@@ -7,7 +7,7 @@ bp_view = Blueprint("view", __name__, url_prefix="/")
 
 @bp_view.route("/")
 def index():
-    return redirect("/monitor")
+    return redirect("/monitor/gen")
 
 @bp_view.route("/adm")
 def adm():
