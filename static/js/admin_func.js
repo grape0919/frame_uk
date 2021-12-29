@@ -455,8 +455,6 @@ UIkit.util.on('.btn-edit-mas', 'click', async function (e) {
 
 
 UIkit.util.on('.btn-del-mas', 'click', function (e) {
-  e.preventDefault();
-  e.target.blur();
   console.log(e)
   // add options to manipulate confirm dialog
   UIkit.modal.confirm('삭제하시겠습니까?', {
@@ -481,9 +479,7 @@ UIkit.util.on('.btn-del-mas', 'click', function (e) {
     fetch("/delmasorder", requestOptions)
       .then(response => response.text())
       .then(function (result) {
-        UIkit.modal.alert("삭제하였습니다.").then(function () {
-          load_and_load();
-        });
+        location.reload()
       })
       .catch(function (error) {
         UIkit.modal.alert("삭제 실패 : \n" + error)

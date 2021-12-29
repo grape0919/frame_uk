@@ -1,15 +1,14 @@
 {% block order_table %}
-<ul class="uk-child-width-expand uk-margin-remove" uk-switcher="connect: .switcher-container" uk-tab>
-    <li class="uk-text-bold {% if order_type == 'gen' %}uk-active{% endif %}"><a href="#">일반 발주 현황</a></li>
-    <li class="uk-text-bold {% if order_type == 'mas' %}uk-active{% endif %}"><a href="#">MAS 발주 현황</a></li>
+<ul class="uk-child-width-expand uk-margin-remove" uk-tab>
+    <a class="uk-button uk-text-bold {% if order_type == 'gen' %}bg-color-white{% endif %}" href="/{{menu}}/gen">일반 발주 현황</a>
+    <a class="uk-button uk-text-bold {% if order_type == 'mas' %}bg-color-white{% endif %}" href="/{{menu}}/mas">MAS 발주 현황</a>
 </ul>
-<ul class="uk-switcher switcher-container uk-margin-remove">
-    <li id="gen_order_table" >
+{% if order_type == 'gen' %}
+    <div id="gen_order_table" >
         <div id='gen_reload'>
             <table class="uk-table uk-table-small uk-table-middle uk-table-condensed uk-margin-remove uk-secondary">
                 <thead>
                     <tr class="uk-margin-remove">
-                        <th class="uk-text-middle uk-text-bold uk-table-small" style="font-weight: 700; font-size: 17px">번호</th>
                         <th class="uk-text-middle uk-width-small" style="font-weight: 700; font-size: 17px">발주일</th>
                         <th class="uk-text-middle" style="font-weight: 700; font-size: 17px">거래처</th>
                         <th class="uk-text-middle uk-table-expand" style="font-weight: 700; font-size: 17px">품목</th>
@@ -31,7 +30,6 @@
                 <tbody>
                     {% for order in gen_order %}
                     <tr class="{{order['font_color']}}" style="font-weight: 700; font-size: 20px">
-                        <td> {{order['id']}} </td>
                         <td> {{order['start_date']}} </td>
                         <td> {{order['customer']}} </td>
                         <td style="white-space: pre-line;"> {{order['product']}} </td>
@@ -52,8 +50,10 @@
                 </tbody>
             </table>
         </div>
-    </li>
-    <li id="mas_order_table">
+    <div>
+{% endif %}
+{% if order_type == 'mas' %}
+    <div id="mas_order_table">
         <div id='mas_reload'>
             <table class="uk-table uk-table-middle uk-table-condensed uk-table-small uk-margin-remove uk-secondary">
                 <thead>
@@ -105,7 +105,7 @@
                 </tbody>
             </table>
         </div>
-    </li>
-</ul>
+    </div>
+{% endif %}
 
 {% endblock order_table %}

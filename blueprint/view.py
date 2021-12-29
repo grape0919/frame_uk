@@ -19,11 +19,11 @@ def adm_type(t):
     mas_order = db_hander.get_mas_order()
     return render_template("order_adm.html", order_type=t, gen_order=gen_order, mas_order=mas_order)
 
-@bp_view.route("/monitor")
-def monitor():
+@bp_view.route("/monitor/<t>")
+def monitor(t):
     gen_order = db_hander.get_order()
     mas_order = db_hander.get_mas_order()
-    return render_template("order_monitor.html", gen_order=gen_order, mas_order=mas_order)
+    return render_template("order_monitor.html", order_type=t, gen_order=gen_order, mas_order=mas_order)
 
 @bp_view.route("/getorder", methods=["POST"])
 def getorder():
