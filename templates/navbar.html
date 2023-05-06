@@ -6,9 +6,9 @@
     </div>
     <div class="uk-navbar-right">
             {% if menu == "monitor" %}
-            <a href="/adm" class="uk-icon-link uk-margin-small-right" uk-icon="icon: cog; ratio: 1"></a>
+            <a href="/adm/{{order_type}}" class="uk-icon-link uk-margin-small-right" uk-icon="icon: cog; ratio: 1"></a>
             {% else %}
-            <a href="/monitor" class="uk-icon-link uk-margin-small-right" uk-icon="icon: tv; ratio: 1"></a>
+            <a href="/monitor/{{order_type}}" class="uk-icon-link uk-margin-small-right" uk-icon="icon: tv; ratio: 1"></a>
             
             {% endif %}
     </div>
